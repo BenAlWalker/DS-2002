@@ -1,7 +1,7 @@
 # DROP database `northwind_dw`;
-CREATE DATABASE `Northwind_DW3` /*!40100 DEFAULT CHARACTER SET latin1 */ /*!80016 DEFAULT ENCRYPTION='N' */;
+CREATE DATABASE `Northwind_DW2` /*!40100 DEFAULT CHARACTER SET latin1 */ /*!80016 DEFAULT ENCRYPTION='N' */;
 
-USE Northwind_DW3;
+USE Northwind_DW2;
 
 # DROP TABLE `dim_customers`;
 CREATE TABLE `dim_customers` (
@@ -102,6 +102,26 @@ CREATE TABLE `dim_suppliers` (
   KEY `last_name` (`last_name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 
+CREATE TABLE `dim_date` (
+  `date_key` int NOT NULL AUTO_INCREMENT,
+  `DayDate` varchar(50) DEFAULT NULL,
+  `DayDate_YYYYMMDD` varchar(50) DEFAULT NULL,
+  `DayOfWeekName` varchar(50) DEFAULT NULL,
+  `DayOfWeekNameAbbrv` varchar(50) DEFAULT NULL,
+  `DayNumberInWeek` varchar(25) DEFAULT NULL,
+  `DayNumberInMonth` varchar(25) DEFAULT NULL,
+  `MonthName` longtext,
+  `Year` varchar(50) DEFAULT NULL,
+  `Quarter_YYYYQ` varchar(50) DEFAULT NULL,
+  `Quarter` varchar(15) DEFAULT NULL,
+  PRIMARY KEY (`date_key`),
+  KEY `DayDate` (`DayDate`),
+  KEY `DayOfWeekName` (`DayOfWeekName`),
+  KEY `DayNumberInWeek` (`DayNumberInWeek`),
+  KEY `DayNumberInMonth` (`DayNumberInMonth`),
+  KEY `Year` (`Year`),
+  KEY `Quarter` (`Quarter`)
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------------------------------------------------
 -- TODO: JOIN the orders, order_details, order_details_status and 
